@@ -1,38 +1,23 @@
 // Codeforces - Color the Fence - round 202 div 2 B
 
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
-const long int MAX = 100001;
+
+int n, a, ans, k;
+int s[150009];
 
 int main() {
-	long int v;
-	cin >> v;
+    cin >> n >> k;
+    for (int i = 0; i < n; i++) {
+        cin >> a;
+        s[i + 1] = s[i] + a;
+    }
 
-	vector<long int> ad;
-	long int menor = MAX;
-	long int menorIndex = -1;
-	for (int i = 0; i < 9; i++) {
-		long int x;
-		cin >> x;
-
-		ad.push_back(x);
-
-		if (menor > x) menor = x;
-	}
-
-	if (menor > v) cout << -1 << endl;
-
-	else {
-		string loveNumber = '';
-		long int qtd = v / menor;
-
-		for (long int i = 0; i < qtd; i++) {
-			loveNumber += (string) ad.at(i);
-		}
-
-		cout << loveNumber << endl;
-	}
-
-	return 0;
+    for (int i = 1; i <= n - k; i++) {
+        if (s[i + k] - s[i] < s[ans + k] - s[ans])
+            ans = i;
+    }
+    cout << ans + 1;
+    return 0;
 }
