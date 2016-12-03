@@ -1,4 +1,4 @@
-// Codeforces - Div 2 A - # 379
+// Codeforces - Div 2 B - # 379
 // Clara Moraes Dantas
 
 #include <bits/stdc++.h>
