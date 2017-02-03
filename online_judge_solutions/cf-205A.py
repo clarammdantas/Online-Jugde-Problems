@@ -3,40 +3,30 @@
 
 n = int(raw_input())
 
-dominos = []
+upper = 0
+lower = 0
 
-even = 0
-odd = 0
-upperEven = 0
-lowerEven = 0
+differentParaties = (-1, -1)
 
-for i in range(n):
+for i in xrange(n):
 	x, y = map(int, raw_input().split())
+	upper += x; lower += y
 
-	dominos.append((x, y))
+	if x % 2 == 0 and y % 2 != 0:
+		differentParaties = (x, y)
 
-	if x % 2 == 0:
-		even += 1
-		upperEven += 1
+	elif x % 2 != 0 and y % 2 == 0:
+		differentParaties = (x, y)
 
-	else:
-		odd += 1
-
-	if y % 2 == 0:
-		even += 1
-		lowerEven += 1
-
-	else: 
-		odd += 1
-
-if (even != odd and odd > 0) or (len(dominos) == 1 and even == odd):
-	print -1
-
-elif even != odd and odd == 0:
+if upper % 2 == 0 and lower % 2 == 0:
 	print 0
 
+elif upper % 2 != 0 and lower % 2 != 0:
+	if  differentParaties[1] != -1 and differentParaties[0] != -1:
+		print 1
+
+	else:
+		print -1
+
 else:
-	print min(upperEven, lowerEven)
-
-
-
+	print -1
