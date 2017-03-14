@@ -1,2 +1,0 @@
-//janela spoj
-
