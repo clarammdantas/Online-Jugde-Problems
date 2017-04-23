@@ -39,8 +39,8 @@ int main() {
 					cout << '-';
 
 				else
-					cout << '-' << endl;
-
+					cout << '-' << endl
+;
 			}
 		}
 	}
