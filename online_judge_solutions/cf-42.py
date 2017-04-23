@@ -23,4 +23,4 @@ for t in points:
 		maxi = points[t]
 		winner = t
 
-print winner
+print winne
